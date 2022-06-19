@@ -1,17 +1,19 @@
-import { LoaderFunction } from "@remix-run/node";
+import { json, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
-export const loader: LoaderFunction = () => {
-  return [{ title: "First", body: "My First Post" }]
+import { getPosts, Post } from "~/services/posts.server";
+
+type LoaderData = {
+  posts: Post[]
 }
 
-type Post = {
-  title: string,
-  body: string
+export const loader: LoaderFunction = async () => {
+  const data: LoaderData = { posts: await getPosts() }
+  return json(data);
 }
 
 export default function Index() {
-  const posts = useLoaderData<Post[]>();
+  const { posts } = useLoaderData<LoaderData>();
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <h1>Welcome to Remix</h1>
