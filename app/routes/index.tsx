@@ -22,7 +22,7 @@ export default function Index() {
         {
           posts.map(post => (
             <li key={post.title}>
-              <PostComponent title={post.title}>
+              <PostComponent header={post.title}>
                 {post.body}
               </PostComponent>
             </li>
