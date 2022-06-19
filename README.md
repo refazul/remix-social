@@ -42,3 +42,10 @@ npx prisma init --datasource-provider sqlite
 npx prisma db push
 npx prisma studio
 ```
+
+## Tailwind
+
+```sh
+npm install --save-dev tailwindcss postcss autoprefixer concurrently
+npx tailwindcss init -p
+```
