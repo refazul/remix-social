@@ -69,10 +69,10 @@ Install pscale CLI
 scoop bucket add pscale https://github.com/planetscale/scoop-bucket.git
 scoop install pscale
 pscale auth login
-pscale branch create remix-social initial-setup
-pscale connect remix-social initial-setup --port 3309
-npx prisma db push
-pscale branch switch main --database remix-social
+pscale database create <database-name>
+pscale branch create <database-name> <branch-name>
+pscale connect <database-name> <branch-name> --port 3309
+pscale branch switch main --database <database-name>
 ```
 
 After switching branch, restart everything.
