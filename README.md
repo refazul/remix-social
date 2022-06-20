@@ -49,3 +49,9 @@ npx prisma studio
 npm install --save-dev tailwindcss postcss autoprefixer concurrently
 npx tailwindcss init -p
 ```
+
+## Validation
+
+```sh
+npm install --save zod
+```
