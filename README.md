@@ -55,3 +55,24 @@ npx tailwindcss init -p
 ```sh
 npm install --save zod
 ```
+
+## PlanetScale
+
+Get [scoop](https://scoop.sh/) first
+```sh
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+irm get.scoop.sh | iex
+```
+
+Install pscale CLI
+```sh
+scoop bucket add pscale https://github.com/planetscale/scoop-bucket.git
+scoop install pscale
+pscale auth login
+pscale branch create remix-social initial-setup
+pscale connect remix-social initial-setup --port 3309
+npx prisma db push
+pscale branch switch main --database remix-social
+```
+
+After switching branch, restart everything.
